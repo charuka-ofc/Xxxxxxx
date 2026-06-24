@@ -53,7 +53,7 @@ const msgRetryCounterCache = new NodeCache()
 
 //=====================================================
 
-require('events').EventEmitter.defaultMaxListeners = 500;
+require('events').EventEmitter.defaultMaxListeners = 0;
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://MIZUKIMD_db_user:wGDUfSJVIT5HUrt8@mizukimd.3oltspl.mongodb.net/?appName=MIZUKIMD';
 
