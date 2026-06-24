@@ -59,40 +59,36 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://MIZUKIMD_db_user:w
 
 downloadAndExtractZip().then(() => {
     console.log('✅ Zip extracted successfully');
-}).catch(err => {
-    console.error('❌ Zip extract error:', err);
-});
 
-mongoose.connect(MONGODB_URI)
-    .then(() => console.log('𝐌ᴏɴɢᴏ𝐃𝐁 𝐂ᴏɴɴᴇᴄᴛᴇᴅ ✅ '))
-    .catch(err => console.log('❌ 𝐌ᴏɴɢᴏ𝐃𝐁 ᴇʀʀᴏ:', err));
+    mongoose.connect(MONGODB_URI)
+        .then(() => console.log('𝐌ᴏɴɢᴏ𝐃𝐁 𝐂ᴏɴɴᴇᴄᴛᴇᴅ ✅ '))
+        .catch(err => console.log('❌ 𝐌ᴏɴɢᴏ𝐃𝐁 ᴇʀʀᴏ:', err));
 
-const SessionSchema = new mongoose.Schema({
-    sessionId: String,
-    data: Object
-});
-const Session = mongoose.model('Session', SessionSchema);
+    const SessionSchema = new mongoose.Schema({
+        sessionId: String,
+        data: Object
+    });
+    const Session = mongoose.model('Session', SessionSchema);
 
-//=====================================================
+    //=====================================================
 
+    fs.readdirSync("./plugins/").forEach((plugin) => {
+        if (path.extname(plugin).toLowerCase() == ".js") {
+            require("./plugins/" + plugin);
+        }
+    });
+    console.log('𝐀ʟʟ 𝐏ʟᴜɢɪɴꜱ 𝐈ɴꜱᴛᴀʟʟᴇᴅ ⚡');
 
-fs.readdirSync("./plugins/").forEach((plugin) => {
-    if (path.extname(plugin).toLowerCase() == ".js") {
-        require("./plugins/" + plugin);
-    }
-});
-console.log('𝐀ʟʟ 𝐏ʟᴜɢɪɴꜱ 𝐈ɴꜱᴛᴀʟʟᴇᴅ ⚡');
+    const events = require('./lib/command');
+    const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson } = require('./lib/functions');
+    let { sms, downloadMediaMessage } = require('./lib/msg');
+    const { get_set , input_set } = require('./lib/set_db')
+    var id_db = require('./lib/id_db')
+    var num_db = require('./lib/num_db')    
 
-const events = require('./lib/command');
-const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson } = require('./lib/functions');
-let { sms, downloadMediaMessage } = require('./lib/msg');
-const { get_set , input_set } = require('./lib/set_db')
-var id_db = require('./lib/id_db')
-var num_db = require('./lib/num_db')    
+    //=====================================================
 
-//=====================================================
-
-const commandMap = new Map();
+    const commandMap = new Map();
 for (const cmd of events.commands) {
     if (cmd.pattern) commandMap.set(cmd.pattern, cmd);
     if (cmd.alias) {
@@ -1133,4 +1129,9 @@ process.on('uncaughtException', (err) => {
     if (e.includes('Connection Closed')) return;
     if (e.includes('Value not found')) return;
     console.log('Caught exception:', err);
+});
+
+}).catch(err => {
+    console.error('❌ Startup failed (zip extract error):', err);
+    process.exit(1);
 });
