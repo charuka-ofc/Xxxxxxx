@@ -3,7 +3,7 @@ const fs = require('fs-extra');
 const path = require('path');
 const pino = require('pino');
 let config = require('./settings');
-var { downloadAndExtractZip } = require('./start');
+let { downloadAndExtractZip } = require('./start');
 const axios = require('axios');
 const mongoose = require('mongoose');
 const FileType = require('file-type')
@@ -53,11 +53,11 @@ const msgRetryCounterCache = new NodeCache()
 
 //=====================================================
 
-require('events').EventEmitter.defaultMaxListeners = 0;
+require('events').EventEmitter.defaultMaxListeners = 500;
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://MIZUKIMD_db_user:wGDUfSJVIT5HUrt8@mizukimd.3oltspl.mongodb.net/?appName=MIZUKIMD';
 
-await downloadAndExtractZip();
+(async () => { await downloadAndExtractZip(); })().catch(console.error);
 
 mongoose.connect(MONGODB_URI)
     .then(() => console.log('𝐌ᴏɴɢᴏ𝐃𝐁 𝐂ᴏɴɴᴇᴄᴛᴇᴅ ✅ '))
