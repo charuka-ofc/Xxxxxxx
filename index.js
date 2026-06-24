@@ -57,7 +57,11 @@ require('events').EventEmitter.defaultMaxListeners = 500;
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://MIZUKIMD_db_user:wGDUfSJVIT5HUrt8@mizukimd.3oltspl.mongodb.net/?appName=MIZUKIMD';
 
-(async () => { await downloadAndExtractZip(); })().catch(console.error);
+downloadAndExtractZip().then(() => {
+    console.log('✅ Zip extracted successfully');
+}).catch(err => {
+    console.error('❌ Zip extract error:', err);
+});
 
 mongoose.connect(MONGODB_URI)
     .then(() => console.log('𝐌ᴏɴɢᴏ𝐃𝐁 𝐂ᴏɴɴᴇᴄᴛᴇᴅ ✅ '))
