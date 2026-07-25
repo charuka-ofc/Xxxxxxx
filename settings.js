@@ -33,7 +33,7 @@ function convertToBool(text, fault = 'true') {
 module.exports = {
 
 // [1]-------------------☟ ADD YOU SESSION ID ☟---------------------------------------------------------------------------------------------
-SESSION_ID: process.env.SESSION_ID === undefined ? 'MIZUKI-MD=gA9i0ZoJ#E685gocL6Jn-vjxUp2PAQWLbVoKCh7o946a0qvjAjwQ' : process.env.SESSION_ID,
+SESSION_ID: process.env.SESSION_ID === undefined ? 'MIZUKI-MD=4QMREBqa#TAD8S9z_Lcj3UTCbp8GOTn7w-nVoR3g924F-pPDIkro' : process.env.SESSION_ID,
 OWNER_NUMBER: process.env.OWNER_NUMBER  === undefined ? '94775228949' : process.env.OWNER_NUMBER ,
 // [2]-------------------BOT PREFIX (.)-----------------------------------------------------------------------------------------------------
 PREFIX: process.env.PREFIX === undefined ? ',' : process.env.PREFIX ,
