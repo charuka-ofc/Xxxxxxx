@@ -33,7 +33,7 @@ function convertToBool(text, fault = 'true') {
 module.exports = {
 
 // [1]-------------------☟ ADD YOU SESSION ID ☟---------------------------------------------------------------------------------------------
-SESSION_ID: process.env.SESSION_ID === undefined ? 'MIZUKI-MD=4QMREBqa#TAD8S9z_Lcj3UTCbp8GOTn7w-nVoR3g924F-pPDIkro' : process.env.SESSION_ID,
+SESSION_ID: process.env.SESSION_ID === undefined ? 'MIZUKI-MD=sBhHWa5a#bbjlDpyKvT5dQw1cmz-m3xNI2CxRgkfkqigxafIWJbo' : process.env.SESSION_ID,
 OWNER_NUMBER: process.env.OWNER_NUMBER  === undefined ? '94775228949' : process.env.OWNER_NUMBER ,
 // [2]-------------------BOT PREFIX (.)-----------------------------------------------------------------------------------------------------
 PREFIX: process.env.PREFIX === undefined ? ',' : process.env.PREFIX ,
@@ -50,8 +50,8 @@ CHAT_BOT: process.env.CHAT_BOT === undefined ?"false" : process.env.CHAT_BOT,
 //[7]--------------------Enter You Group Jid------------------------------------------------------------------------------------------------
 MV_JID: process.env.MV_JID === undefined ?"" : process.env.MV_JID,
 //------------------------------------------------------------------------------------------------------------------------------------------
-PORT: process.env.PORT === undefined ? "7860" : process.env.PORT,
-SUDO: process.env.SUDO === undefined ? '94775228949,94710167783' : process.env.SUDO,
+PORT: process.env.PORT === undefined ? "8000" : process.env.PORT,
+SUDO: process.env.SUDO === undefined ? '245651174588460' : process.env.SUDO,
 SESSION_NAME: process.env.SESSION_NAME === undefined ? "auth_info_baileys" : process.env.SESSION_NAME,
 CHAT_BOT: process.env.CHAT_BOT === undefined ? 'false' : process.env.CHAT_BOT, 
   NEWS_JID: process.env.NEWS_JID === undefined ? "" : process.env.NEWS_SEND_JID,
@@ -62,13 +62,20 @@ AUTO_NEWS_SENDER: process.env.AUTO_NEWS_SENDER === undefined ? "false" : process
 //👇═════════════👇 කැමති නම් වෙනස් කරන්න══════════
 
 BOT_NUMBER: process.env.BOT_NUMBER || "94710167783",
+ALIVE: process.env.ALIVE || "default",
+FOOTER: process.env.FOOTER || "`© 𝐌𝙸𝚉𝚄𝙺𝙸-𝐌𝙸𝙽𝙸-𝐋𝙸𝚃𝙴`",
+LOGO: process.env.LOGO || "https://i.ibb.co/JMJhMv4/SulaMd.jpg",
+DB_NAME: process.env.DB_NAME || "mizukiv3",
 BOT_NAME: process.env.BOT_NAME || "MIZUKI-MD-V2",
 LANG: process.env.LANG ||  "EN",
 REACT: process.env.REACT || "🌲",
 REACT_NUMBER: process.env.REACT_NUMBER || "94710167783",
 SONG_JID: process.env.SONG_JID || "120363403271466711@g.us",
 POSTGRESQL_URL: process.env.POSTGRESQL_URL === undefined ? 'postgresql://sadiya:MTCV3kmoO4YSt6bcK8naY9WCRRO7wL2v@dpg-d07n7k2li9vc73ff97bg-a/sula_md_db' : process.env.POSTGRESQL_URL,
-MONGODB_URL: process.env.MONGODB_URL || "mongodb+srv://sam:sam@cluster0.u1smxsv.mongodb.net/?retryWrites=true&w=majority",
+MONGODB_URI: process.env.MONGODB_URI || "mongodb+srv://mizuki-md:CharukaOfc#0422@cluster0.crlqzqc.mongodb.net/",
+   
+   
+   
    
 
 
